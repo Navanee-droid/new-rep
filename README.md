@@ -34,4 +34,15 @@ SELECT
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
 
+Thank you for sharing the MOM and the action items.
+I have reviewed the notes and acknowledge the follow-up tasks assigned to me. I will:
+Share the pending access items along with the relevant RTM/DASH ticket details.
+Send weekly status updates covering progress, deliverables, and automation learning activities.
+Prepare and share the 4-week automation learning plan and forecast.
+Verify Pluralsight access and update you on the status.
+Compile and communicate any KT/support requirements related to automation deployment and question processes.
+Please let me know if I have missed anything or if there are any additional expectations.
+Thanks & Regards,
+Navaneedhan
+
 
