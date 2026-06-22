@@ -34,3 +34,5 @@ SELECT
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
 This script performs hash-based field-level reconciliation between Oracle source tables and Snowflake target tables for ADS applications. It first compares aggregate table hashes for fast validation. If a mismatch is detected, it performs row-level hash comparison using business keys or primary keys to identify missing, extra, or modified records. The script generates summary, CSV, debug SQL, and difference reports, and can load validation results into Snowflake metadata tables for dashboard reporting.
+
+This script performs count validation between the Curated layer (CUR_IBS) and the tenant-specific Application database within Snowflake. It validates that record counts match for each table for a given tenant and process date. For SCD tables it additionally validates SOR_EXP_DTE records. The script supports sharded tenant databases, generates validation reports and query logs, and optionally loads the results into Snowflake metadata tables for dashboard reporting.
