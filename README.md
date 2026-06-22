@@ -33,6 +33,5 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-FMT_Field_Validation.py validates Oracle extract FMT files against Snowflake CUR_IBS tables. It automatically reads Oracle POS control cards, generates file headers, aligns date formats, removes audit columns, sorts records using business keys, and performs record-level and field-level comparisons. Any mismatches are written into DIFF reports showing the exact row, column, Oracle value, and Snowflake value. The script ensures that data loaded into Snowflake is identical to the original Oracle extract files.
-
+HDVCountValidation.py performs end-to-end record count reconciliation across Oracle DW, Snowflake CUR_IBS, and Snowflake APP_IBS_SHARD layers. It validates table counts, supports TB_C2 and DTM objects, automatically routes tenants to shard databases, performs date-level drilldowns for mismatches, generates detailed reports and query logs, and loads validation results into the Snowflake validation dashboard.
 
