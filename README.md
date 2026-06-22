@@ -33,4 +33,4 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-This script validates structural consistency between the Curated layer (CUR_IBS) and the Application Sharding layer (APP_IBS_SHARD databases). It compares table inventories, DDL definitions, DTM objects, and TB_C2 conformed-dimension tables to ensure that all shard databases contain the correct schema objects with matching metadata before count and data validations are executed
+This script validates DTM, BRDG, and DAY_ARD data between Oracle source tables and Snowflake target views. It automatically discovers DTM views, maps them to Oracle tables, retrieves data tenant-wise for a process date, and performs row count validation, column validation, and field-level data comparison. It captures mismatches, generates CSV reports, and optionally loads the validation results into Snowflake metadata dashboard tables
