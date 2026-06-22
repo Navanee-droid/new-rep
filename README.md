@@ -33,6 +33,6 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-DecimalCheck_Client_Asp.py validates that CLNT_ID and DW_ASP_ID columns across all CUR_IBS application tables do not have decimal precision. It scans Snowflake metadata for numeric scales greater than zero, reports affected tables, captures sample records, generates a remediation SQL script to correct the datatype definitions, and optionally loads results into the validation dashboard.
+FMT_Field_Validation.py validates Oracle extract FMT files against Snowflake CUR_IBS tables. It automatically reads Oracle POS control cards, generates file headers, aligns date formats, removes audit columns, sorts records using business keys, and performs record-level and field-level comparisons. Any mismatches are written into DIFF reports showing the exact row, column, Oracle value, and Snowflake value. The script ensures that data loaded into Snowflake is identical to the original Oracle extract files.
 
 
