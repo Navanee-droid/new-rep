@@ -33,4 +33,6 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-This script performs multi-layer count validation for DDW applications. It validates Oracle counts against Snowflake Curated counts and Snowflake Curated counts against Shard counts. When mismatches occur, it performs drilldown analysis using SCD expiry dates, CUR_REC_IND records, FMT files, and UPD files. It generates detailed validation reports, query reference files, and optionally loads results into Snowflake metadata dashboards.
+FieldValidationDDW.py performs Oracle-to-Snowflake data reconciliation using hash-based validation. It first compares table-level hashes for fast validation. If mismatches are found, it drills down to row-level and column-level comparisons using business keys. The script automatically identifies keys, supports SCD tables, TB_C2 tables, date-range validation, and generates detailed DIFF reports showing exact column mismatches between Oracle and Snowflake.
+
+
