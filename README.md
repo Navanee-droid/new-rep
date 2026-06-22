@@ -33,8 +33,4 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-Smoke Check automation script for DDW applications. It connects to Snowflake and Oracle and validates ETL execution status, Manifest Actual vs Expected counts, tenant configuration, application dependencies, processing cycles, PARAMETERS_SCD activation, ADS-backed tenant mappings, C2 table existence, and intraday processing checks. It generates a detailed validation report and can also load the validation results into Snowflake metadata tables for tracking and reporting.
-
-This script performs schema validation between Oracle and Snowflake. It compares column names, datatypes, lengths, precision, scale, nullable attributes, primary keys, and timestamp columns. It also validates timestamp mappings using Oracle control-card files and Snowflake metadata. The script generates DDL comparison reports and loads validation results into Snowflake metadata tables for audit and tracking
-
-This script performs tenant-wise reconciliation between Oracle source tables and Snowflake target views for DTM, BRDG, and DAY_ARD objects. It validates row counts, column structures, and actual data values for a given process date. The script identifies count mismatches, column mismatches, and row-level data differences, generates a CSV report, and optionally loads the validation results into Snowflake metadata tables for audit reporting.
+This script performs hash-based field-level reconciliation between Oracle source tables and Snowflake target tables for ADS applications. It first compares aggregate table hashes for fast validation. If a mismatch is detected, it performs row-level hash comparison using business keys or primary keys to identify missing, extra, or modified records. The script generates summary, CSV, debug SQL, and difference reports, and can load validation results into Snowflake metadata tables for dashboard reporting.
