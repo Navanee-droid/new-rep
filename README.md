@@ -33,6 +33,6 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-FieldValidationDDW.py performs Oracle-to-Snowflake data reconciliation using hash-based validation. It first compares table-level hashes for fast validation. If mismatches are found, it drills down to row-level and column-level comparisons using business keys. The script automatically identifies keys, supports SCD tables, TB_C2 tables, date-range validation, and generates detailed DIFF reports showing exact column mismatches between Oracle and Snowflake.
+"DDWJoinValidation.py validates referential integrity between fact and dimension tables in Oracle and Snowflake. It compares fact counts and join counts, validates orphan keys, checks SCD expiry conditions, supports TB_C2 application filtering, executes validations in parallel, and loads results into Snowflake dashboards. It ensures that all business relationships are preserved after migration
 
 
