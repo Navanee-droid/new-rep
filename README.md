@@ -33,4 +33,4 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-This script performs count validation between the Curated layer (CUR_IBS) and the tenant-specific Application database within Snowflake. It validates that record counts match for each table for a given tenant and process date. For SCD tables it additionally validates SOR_EXP_DTE records. The script supports sharded tenant databases, generates validation reports and query logs, and optionally loads the results into Snowflake metadata tables for dashboard reporting.
+This script validates structural consistency between the Curated layer (CUR_IBS) and the Application Sharding layer (APP_IBS_SHARD databases). It compares table inventories, DDL definitions, DTM objects, and TB_C2 conformed-dimension tables to ensure that all shard databases contain the correct schema objects with matching metadata before count and data validations are executed
