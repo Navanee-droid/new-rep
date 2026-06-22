@@ -33,6 +33,6 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-DateFormatCheckDDW.py validates that all Oracle timestamp columns identified from control card (.pos/.pos1) definitions are created with valid TIMESTAMP datatypes in Snowflake. It automatically discovers timestamp fields, compares them against Snowflake metadata, validates both application and TB_C2 tables, generates validation reports, and loads results into the validation dashboard. Its purpose is to ensure date and timestamp fields are migrated with the correct datatype semantics.
+DecimalCheck_Client_Asp.py validates that CLNT_ID and DW_ASP_ID columns across all CUR_IBS application tables do not have decimal precision. It scans Snowflake metadata for numeric scales greater than zero, reports affected tables, captures sample records, generates a remediation SQL script to correct the datatype definitions, and optionally loads results into the validation dashboard.
 
 
