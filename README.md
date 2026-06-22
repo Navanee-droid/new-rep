@@ -33,6 +33,6 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-BalanceValidation.py performs aggregate business validation between Oracle and Snowflake. It automatically discovers balance-related numeric columns such as balances, amounts, counts, quantities, and rates, calculates SUM values in both systems, and compares them for a given tenant and process date. This ensures that financial totals and business measures are preserved during migration, even when record counts match.
+AuditFields_DDL_CUR_Validation.py validates that all required ETL audit columns are present in CUR_IBS tables with the correct datatype and length. It supports Fact, Dimension, SCD, and TB_C2 tables, validates Day-0 SOURCE_FILE values, excludes DTM objects, generates audit reports, and loads results into Snowflake validation dashboards. Its purpose is to ensure ETL governance and metadata standards are consistently applied across all curated tables.
 
 
