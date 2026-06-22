@@ -33,6 +33,6 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-AuditFields_DDL_CUR_Validation.py validates that all required ETL audit columns are present in CUR_IBS tables with the correct datatype and length. It supports Fact, Dimension, SCD, and TB_C2 tables, validates Day-0 SOURCE_FILE values, excludes DTM objects, generates audit reports, and loads results into Snowflake validation dashboards. Its purpose is to ensure ETL governance and metadata standards are consistently applied across all curated tables.
+"Curated_Shard_Validation.py validates data parity between the CUR_IBS curated layer and APP_IBS_SHARD databases. It first performs tenant-wise grouped count validation and then uses HASH_AGG-based comparison on common business columns. If mismatches are found, it drills down to tenant-level and row-level analysis to identify missing records, differing columns, and sample data discrepancies. It supports TB_C2 tables, shard-specific tenant routing, date filtering, and loads results into Snowflake validation dashboards."
 
 
