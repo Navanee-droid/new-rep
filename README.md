@@ -33,6 +33,6 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-Analytics_View_Validation.py validates that every application table in APP_IBS_SHARD databases has a corresponding ANALYTICS view and that the aggregated row counts match. It supports multi-application table aggregation, DDW TB_C2 tables, tenant-specific filtering, date-based filtering, and generates validation reports to ensure the reporting layer accurately reflects application data.
+BalanceValidation.py performs aggregate business validation between Oracle and Snowflake. It automatically discovers balance-related numeric columns such as balances, amounts, counts, quantities, and rates, calculates SUM values in both systems, and compares them for a given tenant and process date. This ensures that financial totals and business measures are preserved during migration, even when record counts match.
 
 
