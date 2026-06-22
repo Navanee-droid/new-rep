@@ -33,4 +33,4 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-This script validates DTM, BRDG, and DAY_ARD data between Oracle source tables and Snowflake target views. It automatically discovers DTM views, maps them to Oracle tables, retrieves data tenant-wise for a process date, and performs row count validation, column validation, and field-level data comparison. It captures mismatches, generates CSV reports, and optionally loads the validation results into Snowflake metadata dashboard tables
+This script performs multi-layer count validation for DDW applications. It validates Oracle counts against Snowflake Curated counts and Snowflake Curated counts against Shard counts. When mismatches occur, it performs drilldown analysis using SCD expiry dates, CUR_REC_IND records, FMT files, and UPD files. It generates detailed validation reports, query reference files, and optionally loads results into Snowflake metadata dashboards.
