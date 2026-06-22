@@ -32,3 +32,6 @@ SELECT
     'COLUMN' AS kind,
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
+
+Smoke Check automation script for DDW applications. It connects to Snowflake and Oracle and validates ETL execution status, Manifest Actual vs Expected counts, tenant configuration, application dependencies, processing cycles, PARAMETERS_SCD activation, ADS-backed tenant mappings, C2 table existence, and intraday processing checks. It generates a detailed validation report and can also load the validation results into Snowflake metadata tables for tracking and reporting.
+
