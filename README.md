@@ -33,6 +33,6 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-"Curated_Shard_Validation.py validates data parity between the CUR_IBS curated layer and APP_IBS_SHARD databases. It first performs tenant-wise grouped count validation and then uses HASH_AGG-based comparison on common business columns. If mismatches are found, it drills down to tenant-level and row-level analysis to identify missing records, differing columns, and sample data discrepancies. It supports TB_C2 tables, shard-specific tenant routing, date filtering, and loads results into Snowflake validation dashboards."
+DateFormatCheckDDW.py validates that all Oracle timestamp columns identified from control card (.pos/.pos1) definitions are created with valid TIMESTAMP datatypes in Snowflake. It automatically discovers timestamp fields, compares them against Snowflake metadata, validates both application and TB_C2 tables, generates validation reports, and loads results into the validation dashboard. Its purpose is to ensure date and timestamp fields are migrated with the correct datatype semantics.
 
 
