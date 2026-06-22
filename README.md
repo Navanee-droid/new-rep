@@ -33,6 +33,6 @@ SELECT
     nullable AS "null?",
     NVL(TO_CHAR(data_default), 'null') AS "default"
 
-"DDWJoinValidation.py validates referential integrity between fact and dimension tables in Oracle and Snowflake. It compares fact counts and join counts, validates orphan keys, checks SCD expiry conditions, supports TB_C2 application filtering, executes validations in parallel, and loads results into Snowflake dashboards. It ensures that all business relationships are preserved after migration
+Analytics_View_Validation.py validates that every application table in APP_IBS_SHARD databases has a corresponding ANALYTICS view and that the aggregated row counts match. It supports multi-application table aggregation, DDW TB_C2 tables, tenant-specific filtering, date-based filtering, and generates validation reports to ensure the reporting layer accurately reflects application data.
 
 
